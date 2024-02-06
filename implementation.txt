@@ -1,0 +1,58 @@
+pip install django
+django-admin startproject pyshop .
+-creates a django project in the current folder
+python manage.py runserver
+-runs the django server in a local port
+python manage.py startapp product
+-creates a new app focusing oin one functional area
+-reuse them in different django project
+
+products
+-is a package and can be reused in another projecrt
+admin
+-how creative admin panel will look like
+apps
+-configuration settings
+models
+-classes and new types
+tests
+-automated tests
+views
+-what should the user see when the user navigate to a page
+
+## Creating our first page
+
+in products creating root url
+in view.py,
+implement an index method to accept the httprequest send from the user and return them a httpresponse
+* Create a urls.py in products to map the method to a url
+in url.py,
+create the list or urlpatterns that we are going to use in the product app.
+first it is the root url and mapped towards the index function
+
+->Upto this point django doesnt know abot the product app
+In pyshop app,
+in urls.py
+we have to mention the product app and the url we hae to use to map to that app
+use include to include the module from another app
+any path with '\path' delegate them to the urls module in product module
+
+# Create database from django app
+Add the module to the root app settings file as Installed_apps -
+-example here the new app products can be mapped by mapping the apps.py class
+-'product.apps.ProductConfig'
+ python manage.py makemigration
+ -this creates a new class migration that creates table
+run-python manage.py migrate   this will create the table
+
+## Admin
+To create a admin
+python manage.py createsuperuser
+The default admin page handles only groups and users
+now we have to create a page to manage product in the admin page
+-use the admin.py in product app
+register the class
+
+## Rendering content to the page
+use index.html
+then use a base.html file to have a common html template and use the index html as a block using {% block ___%} {% endblock%}
