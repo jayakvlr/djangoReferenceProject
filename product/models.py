@@ -8,6 +8,7 @@ class Product(models.Model):
     image_url = models.CharField(max_length=2083)
 
 
+# the change
 class Offer(models.Model):
     code = models.CharField(max_length=10)
     description = models.CharField(max_length=255)
